@@ -3,13 +3,35 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Todo App</title>
+      <title>Todo App</title>
+      <style>
+          body {font-family: arial, sans-serif;}
+          .todo--complete { background-color:green;}
+          label { user-select: none; }
+          
+          li {list-style-type:none; border:1px solid #ccc; border-top:0; font-size:12px;
+            padding: 4px 4px 4px 20px; position:relative; 
+          }
+           li input[type='checkbox'] {position:absolute; top:5px; left:2px; top:2px;}
+          li:first-child {border-top:1px solid #ccc;}
+          ul {padding:0; max-width: 400px;  margin:0;}
+
+          #hideCompletedItemsCheckbox { margin-left:6px;}
+          #done-filter-label { color:#999; font-size:12px; margin-left:-4px;}
+      </style>
   </head>
-  <body ng-controller="TodoController as ctrl">
+  <body ng-controller="TodoController as ctrl" id="daBody">
     <h1>Welcome!</h1>
 
-    <!-- html can go here -->
-
+      <!-- html can go here -->
+      <input type="checkbox" id="hideCompletedItemsCheckbox" name="hideCompletedItemsCheckbox" />
+      <label id="done-filter-label" for="hideCompletedItemsCheckbox">Hide Completed Items</label>
+      <ul id="container">
+          <li>First todo</li>
+          <li class="todo--complete">Second todo</li>
+          <li>Third todo</li>
+      </ul>
+      
     <script src="/static/bundle.js"></script>
   </body>
 </html>
